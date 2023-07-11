@@ -33,4 +33,7 @@ class LoginActivity : AppCompatActivity(), ILoginView {
     override fun setTipText(text: String) {
         binding.tipText.text = text
     }
+
+    override fun clearNumberText() {
+    }
 }
