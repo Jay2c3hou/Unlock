@@ -3,9 +3,7 @@ package com.hsy.pinunlock.loginActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.TextView
 import androidx.core.widget.addTextChangedListener
 import com.hsy.pinunlock.databinding.ActivityLoginBinding
 import com.hsy.pinunlock.resetPwdActivity.ResetPwdActivity

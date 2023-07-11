@@ -2,10 +2,6 @@ package com.hsy.pinunlock.resetPwdActivity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
-import androidx.core.widget.addTextChangedListener
-import com.hsy.pinunlock.R
-import com.hsy.pinunlock.databinding.ActivityLoginBinding
 import com.hsy.pinunlock.databinding.ActivityResetPwdBinding
 
 class ResetPwdActivity : AppCompatActivity(), IResetView {
