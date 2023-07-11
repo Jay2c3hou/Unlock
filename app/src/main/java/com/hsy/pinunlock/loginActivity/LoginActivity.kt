@@ -3,6 +3,7 @@ package com.hsy.pinunlock.loginActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.EditText
 import androidx.core.widget.addTextChangedListener
 import com.hsy.pinunlock.databinding.ActivityLoginBinding
@@ -24,8 +25,18 @@ class LoginActivity : AppCompatActivity(), ILoginView {
         }
         loginPresenter = LoginPresenter(this, UserModel())
         // 给 numberText添加 TextListener接口来监听 text值的改变 todo 去网上学这个接口怎么用
+
+        loginPresenter.start()
         binding.numberText.addTextChangedListener {
-            loginPresenter.checkPwd((it as EditText).text.toString())
+            if (loginPresenter.model.pwd == null) loginPresenter.setPwd(it.toString())
+            else {
+                if (it?.length == loginPresenter.model.pwd!!.length)
+                    loginPresenter.checkPwd(it.toString())
+            }
+        }
+
+        binding.confirmButton.setOnClickListener {
+            loginPresenter.confirmPwd(binding.numberText.text.toString())
         }
     }
 
@@ -34,6 +45,13 @@ class LoginActivity : AppCompatActivity(), ILoginView {
         binding.tipText.text = text
     }
 
+    override fun setBtnVisible() {
+        binding.confirmButton.visibility = View.VISIBLE
+    }
+
     override fun clearNumberText() {
+        binding.numberText.setText("")
+        binding.tipText.text = "请输入密码"
+        binding.confirmButton.visibility = View.INVISIBLE
     }
 }
