@@ -13,9 +13,9 @@ class ResetPwdActivity : AppCompatActivity() ,IResetView{
     lateinit var binding :ActivityResetPwdBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
         // 添加视图绑定 todo
         binding = ActivityResetPwdBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         var answerText = binding.answerText
         resetPresenter.setQuestion()
         binding.button.setOnClickListener(){
