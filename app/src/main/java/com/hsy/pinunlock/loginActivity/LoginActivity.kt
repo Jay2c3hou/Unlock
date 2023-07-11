@@ -14,7 +14,7 @@ class LoginActivity : AppCompatActivity(), ILoginView {
     lateinit var binding: ActivityLoginBinding
 
     // loginPresenter todo
-    private val loginPresenter = LoginPresenter(this, UserModel())
+    private lateinit var loginPresenter: LoginPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity(), ILoginView {
         binding.forgetPwdText.setOnClickListener {
             startActivity(Intent(this, ResetPwdActivity::class.java))
         }
-
+        loginPresenter = LoginPresenter(this, UserModel())
         // 给 numberText添加 TextListener接口来监听 text值的改变 todo 去网上学这个接口怎么用
         binding.numberText.addTextChangedListener {
             loginPresenter.checkPwd((it as EditText).text.toString())
