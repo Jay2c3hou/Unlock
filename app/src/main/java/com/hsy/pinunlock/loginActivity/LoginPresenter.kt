@@ -18,6 +18,11 @@ class LoginPresenter(val view: ILoginView, val model: UserModel) {
         } else {
             view.setTipText("请输入密码")
             checkPwd(inputPwd)
+            if (checkPwd(model.pwd.toString())){
+                loginSuccess()
+            }else{
+                loginFailed()
+            }
         }
     }
 
