@@ -17,6 +17,7 @@ class ResetPwdActivity : AppCompatActivity() ,IResetView{
         binding = ActivityResetPwdBinding.inflate(layoutInflater)
         setContentView(binding.root)
         var answerText = binding.answerText
+
         resetPresenter.setQuestion()
         binding.button.setOnClickListener(){
             resetPresenter.checkAnswer((it as EditText).text.toString())

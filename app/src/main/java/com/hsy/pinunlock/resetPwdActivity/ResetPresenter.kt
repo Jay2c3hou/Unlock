@@ -9,7 +9,7 @@ class ResetPresenter(
     val model: QuestionModel,
 ) {
     var randomIndex = -1
-    var keyList = model.resetMap.toList()
+    var keyList = model.resetMap.keys.toList()
 
     fun setQuestion() {
         randomIndex = Random(System.nanoTime()).nextInt(keyList.size)
