@@ -8,21 +8,19 @@ import com.hsy.pinunlock.R
 import com.hsy.pinunlock.databinding.ActivityLoginBinding
 import com.hsy.pinunlock.databinding.ActivityResetPwdBinding
 
-class ResetPwdActivity : AppCompatActivity() ,IResetView{
+class ResetPwdActivity : AppCompatActivity(), IResetView {
     lateinit var resetPresenter: ResetPresenter
-    lateinit var binding :ActivityResetPwdBinding
+    lateinit var binding: ActivityResetPwdBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // 添加视图绑定 todo
         binding = ActivityResetPwdBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        var answerText = binding.answerText
-
+        resetPresenter = ResetPresenter(this, QuestionModel())
         resetPresenter.setQuestion()
-        binding.button.setOnClickListener(){
-            resetPresenter.checkAnswer((it as EditText).text.toString())
+        binding.button.setOnClickListener {
+            resetPresenter.checkAnswer(binding.answerText.text.toString())
         }
-
     }
 
     override fun setQuestionText(text: String) {

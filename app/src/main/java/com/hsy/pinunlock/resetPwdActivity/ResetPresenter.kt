@@ -13,16 +13,15 @@ class ResetPresenter(
 
     fun setQuestion() {
         randomIndex = Random(System.nanoTime()).nextInt(keyList.size)
-        view.setQuestionText(keyList[randomIndex].toString())
+        view.setQuestionText(keyList[randomIndex])
     }
 
     fun checkAnswer(answer: String) {
-        if (answer == model.resetMap[keyList[randomIndex].toString()]) {
+        if (answer == model.resetMap[keyList[randomIndex]]) {
             view.setQuestionText("回答正确")
-            TODO("密码的值")
-        }else{
-            view.setQuestionText("回答错误")
-            Timer().schedule(3000) {
+        } else {
+            view.setQuestionText("回答错误\n程序即将退出")
+            Timer().schedule(1000) {
                 android.os.Process.killProcess(android.os.Process.myPid())
             }
         }
