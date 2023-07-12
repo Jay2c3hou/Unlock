@@ -1,10 +1,9 @@
 package com.hsy.pinunlock.loginActivity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import com.hsy.pinunlock.databinding.ActivityLoginBinding
 import com.hsy.pinunlock.resetPwdActivity.ResetPwdActivity
@@ -19,7 +18,7 @@ class LoginActivity : AppCompatActivity(), ILoginView {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // 给 forgetPwdText添加点击事件，使得点击之后跳转到 resetPwdActivity todo
+        // 给 forgetPwdText添加点击事件，使得点击之后跳转到 resetPwdActivityPlease enable JCEF browser by enabling settings as per below.  todo
         binding.forgetPwdText.setOnClickListener {
             startActivity(Intent(this, ResetPwdActivity::class.java))
         }
